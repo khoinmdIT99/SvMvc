@@ -1,0 +1,88 @@
+﻿
+@using DOAN_WEBNC.Models
+@{
+    ViewBag.Title = "DetailStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listDiemHK1 = ViewData["DiemHK1"] as IEnumerable<CTDiemTungHSVM>;
+    var listDiemHK2 = ViewData["DiemHK2"] as IEnumerable<CTDiemTungHSVM>;
+    var listDiemCN = ViewData["DiemCN"] as IEnumerable<DiemCaNamVM>;
+    var tenNH = ((string)ViewBag.HK1).Remove(((string)ViewBag.HK1).Length - 5, 5);
+}
+
+<style>
+    .container-xl {
+        max-width: 1700px;
+    }
+    a, a:visited{
+        color: #333;
+    }
+</style>
+
+<h2>DetailStudent</h2>
+
+<h4>Tên học sinh: @ViewBag.TenHS</h4>
+
+<h6>Tên năm học : @tenNH</h6>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>
+                Tên Môn học
+            </td>
+            @foreach (var item in listDiemHK1)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenMon)
+                </td>
+
+            }
+            <td>
+                TBHK1
+            </td>
+        </tr>
+
+    </thead>
+    <tr>
+        <td>
+            Học kỳ 1
+        </td>
+        @foreach (var item in listDiemHK1)
+        {
+            <td>
+                <a href="~/DiemChiTiet/Details/@item.MaBangDiem"  title="Click here to see more details">
+                    @Html.DisplayFor(modelItem => item.DiemTong)
+                </a>
+            </td>
+        }
+        <td>@ViewBag.TBHK1</td>
+    </tr>
+    
+    <tr>
+        <td>
+            Học kỳ 2
+        </td>
+        @foreach (var item in listDiemHK2)
+        {
+            <td>
+                <a href="~/DiemChiTiet/Details/@item.MaBangDiem" title="Click here to see more details">
+                    @Html.DisplayFor(modelItem => item.DiemTong)
+                </a>
+            </td>
+        }
+        <td>@ViewBag.TBHK2</td>
+    </tr>
+
+    <tr>
+        <td>
+            Cả năm
+        </td>
+        @foreach (var item in listDiemCN)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.DiemTBCN)
+            </td>
+        }
+        <td>@ViewBag.TBCN</td>
+    </tr>
+</table>

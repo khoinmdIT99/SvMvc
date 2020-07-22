@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DOAN_WEBNC.Models.ChiTietDiem>
+@using DOAN_WEBNC.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double tbhk = 0;
+   
+}
+    
+    <div>
+        <h4>Bảng điểm Chi tiết</h4>
+        <h6>Tên học sinh: @ViewBag.TenHS </h6>
+        <h6>
+            Môn học: @ViewBag.TenMH
+        </h6>
+        <table  class="table table-bordered table-hover"  >
+            <thead >
+                <tr>
+                    <td></td>
+                    <td>Miệng</td>
+                    <td colspan="3">15 phút</td>
+                    <td colspan="2">1 tiết</td>
+                    <td>Thi</td>
+                    <td>TBHK</td>
+                </tr>
+            </thead>          
+            <tr>
+                <td>Điểm</td>
+                @foreach (var item in Model)
+                {
+                    <td>@Html.DisplayFor(modelItem => item.Diem)</td>
+                    switch (item.LoaiDiem)
+                    {
+                        case TenLoaiDiem.Loai1:
+                            {
+                                tbhk += item.Diem;
+
+                                break;
+                            }
+                        case TenLoaiDiem.Loai2:
+                            {
+                                double temp = 0;
+                                if (item.LanThi == 1) { temp += item.Diem; }
+                                if (item.LanThi == 2) { temp += item.Diem; }
+                                if (item.LanThi == 3) { temp += item.Diem; }
+                                tbhk += temp;
+                                break;
+                            }
+                        case TenLoaiDiem.Loai3:
+                            {
+                                double temp = 0;
+                                if (item.LanThi == 1) { temp += item.Diem*2; }
+                                if (item.LanThi == 2) { temp += item.Diem*2; }
+                                tbhk += temp;
+                                break;
+                            }
+                        case TenLoaiDiem.THI:
+                            {
+                                tbhk += item.Diem*3;
+                              
+                                break;
+                            }
+                    }
+                }
+                <td>@Math.Round(tbhk / 11, 2)</td>
+            </tr>
+
+
+        </table>
+
+        
+    </div>
+    <p>
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = ViewBag.MaBangDiem, @class = "btn btn-success" })
+            <span> &nbsp; | &nbsp;</span>
+            <a class=" btn btn btn-dark" style="color:white;" href="/Lop/DetailStudent/@ViewBag.MaHocSinh">Quay lại</a>
+        }
+        @if (User.IsInRole("Student"))
+        {        
+            <a class=" btn btn btn-dark" style="color:white;" href="/studentview/Index">Quay lại</a>
+        }
+    </p>

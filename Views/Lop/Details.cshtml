@@ -1,0 +1,41 @@
+﻿@using DOAN_WEBNC.Models
+@model IEnumerable<HocSinh>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>
+                    Họ tên
+                </td>                     
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => i.HoTen)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "DetailStudent", new { id = i.IDHocSinh })
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.IDLop }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,43 @@
+﻿@model DOAN_WEBNC.Models.DiemHS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DiemHS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HocSinh.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HocSinh.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMonHoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonHoc.TenMonHoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamHoc.TenNamHoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamHoc.TenNamHoc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaBangDiem }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

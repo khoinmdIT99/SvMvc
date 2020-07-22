@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DOAN_WEBNC.Models.DiemHS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HocSinh.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMonHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamHoc.TenNamHoc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HocSinh.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMonHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamHoc.TenNamHoc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaBangDiem }) |
+            @Html.ActionLink("Details", "Details","DiemChiTiet", new { id=item.MaBangDiem }, htmlAttributes: null) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaBangDiem })
+        </td>
+    </tr>
+}
+
+</table>

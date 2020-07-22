@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DOAN_WEBNC.Models.HocSinhViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>Mabangdiem</th>
+           
+            <th>TenHocSinh</th>
+           
+            <th>TenMonHoc</th>
+           
+            <th>NamHoc</th>
+            @*<th>TenMonHoc</th>*@
+        </tr>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.MaBangDiem</td>
+             
+                    <td>@item.TenHocSinh</td>
+              
+                    <td>@item.TenMonHoc</td>
+                
+                    <td>@item.NamHoc</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = item.MaBangDiem }) |</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

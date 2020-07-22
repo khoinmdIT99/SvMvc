@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Titlen</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://kit.fontawesome.com/4b910408b4.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header id="top">
+        <!-- Fixed navbar -->
+        <nav class="nav navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                <img src="~/Content/Images/lg.png" alt="logo" height="70px" />
+                <div class="school-name">PAPATOETOE HIGH SCHOOL</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    @{
+                        if (User.IsInRole("Admin"))
+                        {
+                            @Html.Partial("_AdminPartial")
+                        }
+                        else
+                        {
+                            @Html.Partial("_StudentPartial")
+                        }
+                    }
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+        <div class="container-xl">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-3 align-items-center">
+                    <div class="team-info">
+                        <h3>Complete By</h3>
+                        <ul class="list-member" style="list-style:inside">
+                            <li><a href="http://fb.com/SUHOANGAN" class="btn-link">Sử Hoàng Ân</a></li>
+                            <li><a href="http://fb.com/kai3089" class="btn-link">Huỳnh Anh Kiệt</a></li>
+                            <li><a href="http://fb.com/100005531386995" class="btn-link">Hồ Thị Ánh</a></li>
+                            <li><a href="http://fb.com/sieng.phamhoai" class="btn-link">Phạm Hoài Siêng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 align-items-center">
+                    <h3>
+                        Gửi ý kiến của bạn cho chúng tôi
+                    </h3>
+                    <div class="feedback-form">
+                       <style>
+                           ::placeholder {
+                              color: #ffffff !important;
+                            }
+                       </style>
+                        @using(Html.BeginForm("SendMail", "Home"))
+                        {
+                            <div class="row">
+                            <div class="col-md-6">
+                                <input class="form-control" type="email" name="email" id="emailAddress" placeholder="Địa chỉ email">
+                                <span style="margin-bottom: 20px; display: block"></span>
+                                <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Họ và tên">
+                                <button class="btn btn-primary" type="submit">Gửi</button>
+                            </div>
+                            <div class="col-md-6">
+                                <textarea class="form-control" name="feedback-content" id="feedbackContent" cols="30"
+                                            rows="5" placeholder="Nội dung"></textarea>
+                            </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-4 align-items-center">
+                    <h3>Trường trung học Papatoetoe</h3>
+                    <div class="contact-info">
+                        <p>155 Sư Vạn Hạnh (nối dài) P13 Q10 TPHCM</p>
+                        <p>Số điện thoại: 0123 456 789</p>
+                        <p>Email: contact@papatoetoe.edu.vn</p>
+                    </div>
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="488" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=155%20Su%20Van%20Hanh&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.crocothemes.net" rel="noreferrer" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#top" class="btn btn-warning">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </footer>
+    <script src="~/Scripts/ShowImg.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

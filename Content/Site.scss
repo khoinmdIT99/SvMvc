@@ -1,0 +1,762 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    font-size: 18px;
+    position: relative;
+    scroll-behavior: smooth;
+}
+body{
+    padding-top:99px;
+}
+/*a:hover{
+    color: #fff;
+}*/
+a {
+    &:focus, &:active, &:visited {
+        color: #007bff;
+    }
+    &:hover{
+        text-decoration:none;
+    }
+}
+.my-container{
+    width: 100% !important;
+   // padding-left: 100px;
+   // padding-right: 100px;
+}
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #333;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input, textarea {
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+input:focus {
+    // border: 1px solid red;
+    border-color: rgb(130, 190, 224);
+}
+
+label {
+    font-weight: 300;
+}
+
+
+header {
+    .nav {
+        background-image: linear-gradient(88.7deg, rgba(144,254,229,.5) -17.1%, rgba(91,193,239,.5) 30.4%, rgba(119,94,173,.5) 130.3% ), url("../Content/images/bg.jpg");
+        backdrop-filter: brightness(80%);
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-color: transparent !important;
+
+        @media screen and (max-width: 425px) {
+           .school-name{
+               display:none !important;
+           }
+        }
+
+        .navbar-brand {
+            width: auto;
+            margin-left: 30px;
+            vertical-align: middle;
+        }
+
+        .school-name {
+            height: 50px;
+            padding: 0;
+            font-size: 25px;
+            display: inline;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-family: 'Quicksand' !important;
+        }
+
+        .navbar-toggler {
+            position: fixed;
+            top: 29px;
+            right: 10px;
+        }
+
+        .navbar-collapse {
+            float: right;
+
+            .navbar-nav {
+                margin-right: 100px;
+
+                @media screen and (max-width: 768px) {
+                    margin-right: 0px
+                }
+
+                li {
+                    margin-left: 10px;
+                    width: fit-content;
+                    align-self: center;
+                    a {
+                        color: #fff;
+                        transition: all .3s;
+                        padding: 10px 15px;
+                        font-size: 18px;
+                        &:hover {
+                            color: #fff;
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    &::after {
+                        height: 2px;
+                        content: " ";
+                        display: block;
+                        background-color: rgba(245, 236, 236, 0.7);
+                        width: 0%;
+                        transition: all .3s;
+                    }
+
+                    &:hover::after {
+                        width: 110%;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                text-align: center;
+
+                li {
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+main {
+    //height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px !important;
+}
+
+footer {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: #fff;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .btn-warning {
+        height: 40px;
+        width: 40px;
+        font-size: 18px;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        padding: 5px 0 !important;
+
+        i {
+            color: #fff;
+        }
+    }
+
+    padding-top: 30px;
+    width: 100%;
+    background-image: linear-gradient( 88.7deg, rgb(15, 120, 161) -17.1%, rgb(40, 146, 196) 40.4%, rgb(80, 35, 177) 115.3% );
+    color: #fff;
+
+    h3 {
+        font-weight: 600;
+        font-size: 26px;
+    }
+
+    p {
+        line-height: 25px;
+    }
+
+    .team-info {
+        margin: 0 auto;
+        width: 80%;
+
+        .list-member {
+            list-style: none;
+            padding-top: 20px;
+
+            li {
+                padding: 15px 20px;
+
+                a {
+                    color: #fff;
+                    transition: all .3s;
+
+                    &:hover, &:active, &:focus {
+                        text-decoration: none;
+                        font-size: 110%;
+                    }
+                }
+            }
+        }
+    }
+
+    .feedback-form {
+        width: 95%;
+        margin: 0 auto;
+
+        input, textarea {
+            background-color: transparent;
+            color: #fff;
+            font-size: 14px;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            padding-left: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        input:focus, textarea:focus {
+            // border: 1px solid red;
+            border-color: rgb(130, 190, 224);
+        }
+
+        .form-control:focus {
+            background-color: rgba(0,0,0,0.24) !important;
+            color: #fff;
+        }
+    }
+
+
+    .mapouter {
+        position: relative;
+        width: 100%;
+
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+
+            iframe {
+                width: 100%;
+            }
+        }
+    }
+
+    .btn.btn-primary {
+        background-color: rgb(255, 203, 34);
+        margin: 10px;
+        width: 70px;
+        height: 40px;
+        margin-right: 0px;
+        outline: none;
+        border: none;
+
+        &:hover {
+            background-color: rgba(241, 188, 11, 0.932);
+        }
+    }
+}
+
+table {
+    outline: none;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 60%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+
+    thead {
+        tr {
+            background-color: #2892c4;
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #dddddd;
+            text-align: center;
+
+            &:nth-of-type(even) {
+                background-color: #ebebeb5e;
+            }
+        }
+    }
+
+    .subject-name {
+        text-align: left;
+        padding-left: 25px;
+    }
+}
+
+.card {
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    border-radius: 3px;
+
+    img {
+        height: 200px;
+        width: 200px;
+        float: left;
+    }
+
+    .card-content {
+        float: right;
+        padding-left: 10px;
+        width: 70%;
+        padding: 10px 20px;
+        font-size: 100%;
+    }
+}
+
+.login-container {
+    // font-family: 'Quicksand', sans-serif !important;
+    background-image: linear-gradient( 88.7deg, rgba(144,254,229,.5) -17.1%, rgba(91,193,239,.5) 30.4%, rgba(119,94,173,.5) 130.3% ), url("../Content/Images/bg.jpg");
+    height: 100vh;
+    backdrop-filter: brightness(.5);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-top: 5%;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: #fff;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .school-content {
+        font-family: 'Quicksand', sans-serif !important;
+        display: inline-block;
+        padding: 50px;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 40px;
+
+        h3 {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 70px;
+            font-weight: 500;
+        }
+
+        .sub-h1 {
+            font-size: 30px;
+            padding-left: 50%;
+        }
+
+        @media screen and (max-width: 425px) {
+            margin-top: 0;
+
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            h1 {
+                font-size: 50px;
+                font-weight: 500;
+            }
+
+            .sub-h1 {
+                font-size: 20px;
+                padding-left: 50%;
+            }
+        }
+    }
+
+    #loginForm {
+        width: 80%;
+        margin-left: 10%;
+        padding: 20px;
+        margin-top: 10%;
+        background-color: rgba(76, 96, 97, 0.397);
+        padding: 30px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        color: #fff;
+        border-radius: 10px;
+
+        .col-lg-8 {
+            max-width: none;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 200%;
+            margin-left: 20px;
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: 400;
+        }
+
+        input {
+            height: 40px;
+            color: #fff;
+            background-color: transparent;
+
+            &:focus {
+                color: #fff;
+            }
+        }
+
+
+        .form-control:focus {
+            border-color: #e8eef3;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(240, 240, 240, 0.075), 0 0 10px rgba(243, 243, 243, 0.6);
+        }
+
+        .btn {
+            border: none;
+            height: 40px;
+            transition: all .3s;
+        }
+
+        .btn-login {
+            background-color: #f1a310;
+            outline: 0;
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            &:hover {
+                background-color: #ad7307;
+            }
+        }
+
+
+
+        .btn-guest {
+            background-color: #636e72;
+            outline: 0;
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+
+            &:hover {
+                background-color: rgba(68, 75, 78, 0.98);
+            }
+        }
+
+        @media screen and (max-width:530px) {
+
+            .btn-guest, .btn-login {
+                width: 250px;
+            }
+        }
+
+        input[type=checkbox] {
+            height: 10px;
+        }
+
+        .forgot-password {
+            padding-bottom: 20px;
+
+            .btn-link {
+                color: #fff;
+                font-size: 90%;
+                font-style: italic;
+            }
+        }
+
+        .remember-info-group {
+            line-height: 20px;
+            vertical-align: middle;
+            margin-top: 10px;
+        }
+
+        h4 {
+            display: block;
+            text-align: center;
+            font-size: 90%;
+        }
+
+        @media screen and (max-width:530px) {
+            margin-left: 0 !important;
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 922px) {
+        height: 100%;
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+    @media screen and (max-width: 425px) {
+        height: 100%;
+    }
+}
+
+.student-container {
+    .show-menu-btn,
+    .hide-menu-btn {
+        transition: .4s;
+        cursor: pointer;
+        display: none;
+
+        i {
+            font-size: 30px;
+        }
+    }
+
+    .hide-menu-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px
+    }
+
+    #check {
+        position: absolute;
+        visibility: hidden;
+        z-index: -11111;
+    }
+
+    .student-card {
+        padding: 30px 20px;
+        width: 80%;
+        margin: 0 auto;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-align: center;
+
+        .student-img {
+            height: 220px;
+            width: 220px;
+            line-height: 220px;
+            position: relative;
+            background-color: rgba(81, 192, 236, 0.349);
+            border-radius: 55%;
+            margin: 0 auto;
+
+            img {
+                height: 200px;
+                width: 200px;
+                border-radius: 55%;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        h4 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+        ul {
+            padding: 20px 0;
+            list-style: none;
+
+            li {
+                height: 80px;
+                line-height: 80px;
+                text-align: left;
+                padding-left: 50px;
+                box-shadow: 0 1px 0px rgba(182, 180, 180, 0.438);
+
+                button {
+                    color: rgb(9, 99, 141);
+                    transition: all .3s;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+
+                    &:hover, &:active {
+                        color: rgb(9, 99, 141);
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+
+        .active {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    .student-grade {
+        margin: 0 auto;
+
+        table {
+            width: 100%;
+
+            thead {
+                tr {
+                    th {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .student-info {
+        margin: 0 auto;
+
+        .student-details {
+            height: 65px;
+            line-height: 65px;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all .3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .col-sm-4 {
+                padding-left: 30px;
+
+                i {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .student-timetable {
+        margin: 0 auto;
+
+        table {
+            td, th {
+                width: 300px !important;
+            }
+
+            thead {
+                tr {
+                    th {
+                        text-align: center;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        text-align: center;
+                        border-left: 1px solid white;
+                        border-right: 1px solid white;
+                    }
+
+                    th {
+                        text-align: center;
+                    }
+
+                    &:nth-of-type(even) {
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .subject {
+                background-color: rgba(241, 219, 149, 0.733);
+                border-top: 1px solid white;
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}
+
+.get-studentid {
+    text-align: center;
+    height: 50vh;
+
+    label {
+        font-size: 20px;
+        display: block;
+        line-height: 50px;
+    }
+
+    input[type=text] {
+        height: 50px;
+        width: 500px;
+        padding-left: 20px;
+        display: inline-block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(128, 128, 128, 0.781);
+        outline: none;
+        border-radius: 3px;
+
+        &:focus {
+            border: 1px solid rgba(168, 213, 226, 0.781);
+            outline: none;
+            box-shadow: 0 0px 3px rgb(127, 203, 247);
+        }
+
+        @media screen and (max-width:530px) {
+            width: 300px;
+        }
+    }
+
+    .btn-guest {
+        background-color: #636e72;
+        color: #fff;
+        outline: 0;
+        border: none !important;
+        width: 150px;
+        height: 40px;
+        display: block;
+        margin: 0 auto;
+
+        &:hover {
+            background-color: rgba(68, 75, 78, 0.98);
+        }
+    }
+}

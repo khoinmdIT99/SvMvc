@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Data.Entity;
+@using DOAN_WEBNC.Models
+@{
+    var db = new ApplicationDbContext();
+    var Name = User.Identity.Name;
+}
+@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("Admin"))
+    {
+        var index = User.Identity.Name.IndexOf("@");
+        Name = User.Identity.Name.Remove(index);
+    }
+
+    if (User.IsInRole("Student"))
+    {
+        var user = db.Users.FirstOrDefault(m => m.UserName == User.Identity.Name);
+        Name = db.HocSinhs.FirstOrDefault(m => m.IDHocSinh == user.Id).HoTen;
+    }
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        //if(User.IsInRole("Admin"))
+        <style>
+            .nav-item {
+                display: inline-block
+            }
+        </style>
+        <li class="nav-item">
+            @Html.ActionLink("Hello " + Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        </li>
+    }
+}
+else
+{
+    @*<li class="nav-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>*@
+    <li class="nav-item">@Html.ActionLink("Đăng nhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+}

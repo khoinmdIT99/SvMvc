@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using DOAN_WEBNC.Models
+@model HocSinh
+    <style>
+        .container-xl {
+            max-width: 1700px
+        }
+    </style>
+<div class="student-container container-fluid">
+    <div class="row">
+
+        <div class="col-xl-3 col-md-3">
+            <input type="checkbox" id="check">
+            <label for="check" class="show-menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <div class="student-card">
+                <label for="check" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                </label>
+                <div class="student-img">
+                    <img src="@Url.Content(Model.Image)" alt="#">
+                </div>
+                <h4>@Model.HoTen</h4>
+                <ul id=student-menu>
+                    <li><button class="tablinks active" onclick="openStudentTab(event, 'XemThongTin')">Xem Thông Tin</button></li>
+                    <li><button class="tablinks" onclick="openStudentTab(event, 'XemDiem')">Xem điểm</button></li>
+                    <li><button class="tablinks" onclick="openStudentTab(event, 'XemTKB')">Xem TKB</button></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-lg-9 col-md-9">
+            <div class="container-fluid">
+                <section id="XemDiem" style="display: none;" class="student-grade tabcontent">
+               
+                    @Html.Action("DetailStudent", "StudentView")
+                    @*<table>
+            <thead>
+            <th>STT</th>
+            <th>Tên Môn Học</th>
+            <th>Điểm 15'</th>
+            <th>Điểm 45'</th>
+            <th>Điểm Thi</th>
+            <th>Điểm Trung Bình</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="subject-name">Toán</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="subject-name">Lý</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="subject-name">Hóa</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>*@
+                </section>
+                <section id="XemThongTin" class="student-info tabcontent">
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Họ Tên HS</span>
+                        </div>
+                        <div class="col-sm-8">
+                            <span>@Model.HoTen</span>
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-fingerprint"></i>
+                            <span>Mã học sinh</span>
+                        </div>
+                        <div class="col-sm-8">
+                            @Model.MSSV
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Lớp</span>
+                        </div>
+                        <div class="col-sm-8">
+                            @Model.Lop.TenLop
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-venus-mars"></i>
+                            <span>Giới tính</span>
+                        </div>
+                        <div class="col-sm-8">
+                            @Model.GioiTinh
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Ngày Sinh</span>
+                        </div>
+                        <div class="col-sm-8">
+                            @Model.NgaySinh
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Địa chỉ</span>
+                        </div>
+                        <div class="col-sm-8">
+                           @Model.DiaChi
+                        </div>
+                    </div>
+                    <div class="student-details row">
+                        <div class="col-sm-4 col-xs-6">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                        <div class="col-sm-8">
+                            @User.Identity.Name
+                        </div>
+                    </div>
+                </section>
+                <section id="XemTKB" style="display: none;" class="student-timetable tabcontent">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tiết</th>
+                                <th>Thứ 2</th>
+                                <th>Thứ 3</th>
+                                <th>Thứ 4</th>
+                                <th>Thứ 5</th>
+                                <th>Thứ 6</th>
+                                <th>Thứ 7</th>
+                                <th>Chủ nhật</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Tiết 1</th>
+                                <td rowspan="3" class="subject"> Tiếng anh</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 2</th>
+                                <td></td>
+                                <td></td>
+                                <td rowspan="2" class="subject">Thể dục</td>
+                                <td rowspan="2" class="subject"> Sinh học</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 3</th>
+                                <td></td>
+                                <td rowspan="4" class="subject">Ngữ văn</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 4</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 5</th>
+                                <td></td>
+                                <td rowspan="3" class="subject">Toán</td>
+                                <td></td>
+                                <td></td>
+                                <td rowspan="2" class="subject">GDCD</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 6</th>
+                                <td rowspan="2" class="subject">Địa lí</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 7</th>
+                                <td></td>
+                                <td></td>
+                                <td class="subject" rowspan="2">Lịch sử</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Tiết 8</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+   

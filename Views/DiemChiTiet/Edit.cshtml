@@ -1,0 +1,57 @@
+﻿@model List<DOAN_WEBNC.Models.ChiTietDiem>
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var IdBD = Model.First().MaBangDiem;
+}
+
+<style>
+    input{
+        padding-left: 10px;
+        text-align:center;
+        width: 70px;
+        border: none;
+    }
+</style>
+
+@using (Html.BeginForm("EditDiem", "DiemChiTiet", new {id = IdBD }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <h5>Ten Hoc Sinh: @ViewBag.TenHS , Mon Hoc: @ViewBag.TenMH</h5>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td></td>
+                <td>Miệng</td>
+                <td colspan="3">15 phút</td>
+                <td colspan="2">1 tiết</td>
+                <td>Thi</td>
+                <td>TBHK</td>
+            </tr>
+        </thead>
+        <tr>
+            <td>Điểm</td>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+               
+                <td>
+                    <input type="number" value="@Model[i].Diem" name="Diem_@(Model[i].LoaiDiem.ToString() +"_"+ Model[i].LanThi.ToString())" min="0" max="10" />
+                </td>
+            }
+           
+        </tr>
+
+
+    </table>
+    <button type="submit" class="btn btn-success">Save</button>
+}
+
+<div>
+    <a href="/DiemChiTiet/Details/@Model[0].MaBangDiem">Quay lại</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

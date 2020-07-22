@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DOAN_WEBNC.Models.NamHoc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNamHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndYear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNamHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndYear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDNamHoc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDNamHoc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDNamHoc })
+        </td>
+    </tr>
+}
+
+</table>

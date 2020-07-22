@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOAN_WEBNC", "DOAN_WEBNC.csproj", "{0F8E02F9-5C31-4E42-9E4F-D1DE8806759C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail", "..\SendMail\SendMail.csproj", "{DBA68F2F-883B-4020-8F93-A53AE91A7606}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F8E02F9-5C31-4E42-9E4F-D1DE8806759C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8E02F9-5C31-4E42-9E4F-D1DE8806759C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8E02F9-5C31-4E42-9E4F-D1DE8806759C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8E02F9-5C31-4E42-9E4F-D1DE8806759C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA68F2F-883B-4020-8F93-A53AE91A7606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA68F2F-883B-4020-8F93-A53AE91A7606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA68F2F-883B-4020-8F93-A53AE91A7606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA68F2F-883B-4020-8F93-A53AE91A7606}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56AB7768-7428-4714-9BBB-BA4186BA17B1}
+	EndGlobalSection
+EndGlobal
